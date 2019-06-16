@@ -12,7 +12,7 @@ This ruby script allows export Binarynight's Locko password manager data to csv.
       > ruby export.rb
       ```
   5. lookup this folder for `csv` file and folder with attachments (if so)
-  6. enjoy
+  6. enjoy and star this repo
 
 # Prerequisites
 
