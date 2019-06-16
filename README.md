@@ -5,7 +5,7 @@ This ruby script allows export Binarynight's Locko password manager data to csv.
 # Usage
 
   1. Export your Locko's database to `.lckexp` file from Locko > File menu
-  2. Place this file with export.rb script to the same folder
+  2. Place this file with `export.rb` script to the same folder
   3. Go to this folder with Terminal
   4. run
       ``` bash
