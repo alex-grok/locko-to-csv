@@ -24,7 +24,10 @@ module Locko
     end
 
     def items
-      @items ||= Dir.glob(File.join(TMP_FOLDER, '**', '*.item'))
+      @items ||= begin
+        system("unzip -o ./#{lckexp} -d #{TMP_FOLDER}")
+        Dir.glob(File.join(TMP_FOLDER, '**', '*.item'))
+      end
     end
 
     def data_header
@@ -32,7 +35,6 @@ module Locko
     end
 
     def process
-      system("unzip -o ./#{lckexp} -d #{TMP_FOLDER}")
       self.class.to_csv lckexp_file_name, ['title'] + data_header + ['custom fields']
       items.each { |i| Item.new(i).export(lckexp_file_name, data_header) }
       FileUtils.rm_rf("./#{TMP_FOLDER}")
