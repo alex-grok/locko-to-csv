@@ -15,11 +15,12 @@ module Locko
     attr_reader :lckexp_file_name
 
     def lckexp
-      Dir.glob(File.join('*.lckexp'))[0]
+      lckexp = Dir.glob(File.join('*.lckexp'))[0]
+      raise 'Put *.lckexp file to the same with this ruby script folder' unless lckexp
+      lckexp
     end
 
     def initialize
-      raise 'Put *.lckexp file to the same with this ruby script folder' unless lckexp
       @lckexp_file_name = lckexp.sub(/\.lckexp\z/, '')
     end
 
